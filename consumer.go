@@ -7,5 +7,14 @@ import (
 )
 
 func ConsumerHandler(c *gin.Context) {
-	c.Status(http.StatusNotImplemented)
+
+	if ItemCount <= 0 {
+		ProductionRate++
+		c.Status(http.StatusTooEarly)
+		return
+	}
+
+	ItemCount--
+
+	c.Status(http.StatusOK)
 }

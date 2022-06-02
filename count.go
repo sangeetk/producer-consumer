@@ -7,5 +7,7 @@ import (
 )
 
 func CountHandler(c *gin.Context) {
-	c.Status(http.StatusNotImplemented)
+	c.JSON(http.StatusOK, gin.H{
+		"count": ItemCount,
+	})
 }
